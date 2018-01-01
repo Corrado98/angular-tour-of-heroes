@@ -12,6 +12,7 @@ export class MessageService {
     this.messages = [];
   }
 
-  constructor() { }
+  constructor() {
+  }
 
 }

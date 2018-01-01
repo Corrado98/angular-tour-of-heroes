@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
 @Injectable()
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'http://localhost:8080/demo/all';  // URL to web api
 
   constructor(private messageService: MessageService,
               private http: HttpClient) {
