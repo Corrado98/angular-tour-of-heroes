@@ -9,10 +9,19 @@ import { catchError, tap } from 'rxjs/operators';
 @Injectable()
 export class HeroService {
 
-  private heroesUrl = 'http://localhost:8080/demo/all';  // URL to web api
+  // private heroesUrl = 'http://localhost:8080/demo/all';  // URL to web api
+  private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(private messageService: MessageService,
               private http: HttpClient) {
+  }
+
+  /** POST: add a new hero to the server */
+  addHero (hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero).pipe(
+      tap((addedHero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
   }
 
   /** GET heroes from the server */
