@@ -15,6 +15,7 @@ export class HeroesMaterialComponent implements OnInit {
   }
 
   add(name: string): void {
+    console.log('CALLED')
     name = name.trim();
     if (!name) { return; }
     this.heroService.addHero({ name } as Hero)

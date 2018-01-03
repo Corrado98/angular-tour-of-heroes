@@ -1,34 +1,37 @@
 <mat-toolbar><span>My Heroes</span></mat-toolbar>
 
-<mat-list>
-  <mat-list-item> Pepper </mat-list-item>
-  <mat-list-item> Salt </mat-list-item>
-  <mat-list-item> Paprika </mat-list-item>
-</mat-list>
-
 <mat-menu #appMenu="matMenu">
-  <button mat-menu-item> Settings </button>
-  <button mat-menu-item> Help </button>
+  <button mat-menu-item> Settings</button>
+  <button mat-menu-item> Help</button>
 </mat-menu>
 
-<button mat-icon-button [matMenuTriggerFor]="appMenu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-
 <div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button mat-button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+  <mat-card>
+    <label>Hero name:
+      <mat-form-field class="example-full-width">
+        <input matInput #heroName placeholder="Hero name" value="">
+      </mat-form-field>
+    </label>
+    <mat-card-actions>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button mat-raised-button color="primary" (click)="add(heroName.value); heroName.value=''">
+        ADD
+      </button>
+    </mat-card-actions>
+
+    <!--<mat-nav-list>-->
+      <!--<mat-list-item>{{hero.id + ' '+ hero.name}}-->
+        <!--<button mat-button color="warn" class="delete" title="delete hero" (click)="delete(hero)">x</button>-->
+      <!--</mat-list-item>-->
+
+    <!--</mat-nav-list>-->
+
+    <mat-chip-list class="mat-chip-list-stacked">
+      <mat-chip *ngFor="let hero of heroes">{{hero.id + ' '+ hero.name}} <button mat-button color="warn" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+      </mat-chip>
+    </mat-chip-list>
+
+  </mat-card>
+
+
 </div>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
-  </li>
-</ul>
