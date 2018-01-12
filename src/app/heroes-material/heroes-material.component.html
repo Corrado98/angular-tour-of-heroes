@@ -19,17 +19,22 @@
       </button>
     </mat-card-actions>
 
-    <!--<mat-nav-list>-->
-      <!--<mat-list-item>{{hero.id + ' '+ hero.name}}-->
-        <!--<button mat-button color="warn" class="delete" title="delete hero" (click)="delete(hero)">x</button>-->
-      <!--</mat-list-item>-->
+    <mat-nav-list>
+      <span *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <mat-list-item>
+          {{hero.id + ' '+ hero.name}}
+          <button mat-button color="warn" title="delete hero" (click)="delete(hero)">x</button>
+        </mat-list-item>
+      </a>
+      </span>
+    </mat-nav-list>
 
-    <!--</mat-nav-list>-->
+    <!--<mat-chip-list class="mat-chip-list-stacked">-->
+    <!--<mat-chip *ngFor="let hero of heroes">{{hero.id + ' '+ hero.name}} <button mat-button color="warn" class="delete" title="delete hero" (click)="delete(hero)">x</button>-->
+    <!--</mat-chip>-->
+    <!--</mat-chip-list>-->
 
-    <mat-chip-list class="mat-chip-list-stacked">
-      <mat-chip *ngFor="let hero of heroes">{{hero.id + ' '+ hero.name}} <button mat-button color="warn" class="delete" title="delete hero" (click)="delete(hero)">x</button>
-      </mat-chip>
-    </mat-chip-list>
 
   </mat-card>
 

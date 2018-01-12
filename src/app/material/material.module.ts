@@ -9,7 +9,7 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatProgressSpinnerModule,
-  MatDialogModule, MatMenu, MatMenuModule, MatChipsModule,
+  MatDialogModule, MatMenu, MatMenuModule, MatChipsModule, MatTableModule,
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatMenuModule,
     MatChipsModule,
+    MatTableModule,
   ],
   exports: [
     FormsModule,
@@ -41,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatMenuModule,
     MatChipsModule,
+    MatTableModule,
   ],
 })
 export class MaterialModule { }

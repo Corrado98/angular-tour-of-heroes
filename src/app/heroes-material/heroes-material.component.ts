@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../dto/hero';
 import { HeroService } from '../services/hero-service/hero.service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-heroes-material',
   templateUrl: './heroes-material.component.html',
   styleUrls: ['./heroes-material.component.css']
 })
+
 export class HeroesMaterialComponent implements OnInit {
 
   heroes: Hero[];
