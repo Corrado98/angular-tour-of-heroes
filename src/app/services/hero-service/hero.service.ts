@@ -30,14 +30,15 @@ export class HeroService {
     const url = `${this.heroesUrl}/add`;
     console.log(hero.name);
     return this.http.post<Hero>(url, hero, this.httpOptions).pipe(
-      tap((addedHero: Hero) => this.log(`added hero w/ id=${addedHero.id}`)),
+      tap((addedHero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
 
   /** DELETE: delete the hero from the server */
   deleteHero(hero: Hero ): Observable<Hero> {
-    const url = `${this.heroesUrl}/${hero.id}`;
+    // TODO not working yet with backend
+    const url = `${this.heroesUrl}/delete`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted hero id=${hero.id}`)),
@@ -80,7 +81,8 @@ export class HeroService {
 
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions)
+    const url = `${this.heroesUrl}/update`;
+    return this.http.put(url, hero, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated hero id=${hero.id}`)),
         catchError(this.handleError<any>('updateHero'))
